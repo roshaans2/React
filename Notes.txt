@@ -28,3 +28,7 @@ State - Any change in the state re-render the UI
 Reconciliation - Finding difference between real dom and virtual dom
 and determining which part to be changed.
 
+Props - It is a object that is passed to component
+
+
+
