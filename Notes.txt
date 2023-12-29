@@ -1,0 +1,30 @@
+React is a framework for building user interfaces
+React is Composable
+React helps in Code Reusability
+React creates Single Page Applications effectively
+
+MPA - Multipage application - Reloads whole page when user interacts with the app
+SPA - Single Page application - Loads only one HTML document and parts of document is updated using Javascript API's
+
+React is a declarative language. 
+
+
+DOM - Document Object Model
+Virtual DOM - 
+Copy of DOM React keep in memory. Whenever we make any change, it will not change the Real DOM, it will change only the Virtual DOM.
+Later the changes will be reflected back to real DOM. Only the changes will be rerendered, not the whole tree.
+
+JSX - Javascript + HTML
+Babel is a compiler which converts JSX to Javascript
+
+
+Component - Whole UI can be splitted into Components. We can declare components by two ways. Functional Components and Class based Components
+
+Named export - Can export any number of things, import with curly bracket
+Default export - Can export only one thing, Import without curly bracket
+
+State - Any change in the state re-render the UI
+
+Reconciliation - Finding difference between real dom and virtual dom
+and determining which part to be changed.
+
