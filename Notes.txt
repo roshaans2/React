@@ -31,4 +31,23 @@ and determining which part to be changed.
 Props - It is a object that is passed to component
 
 
+useReducer hook - It is more advanced and complex way of managing state. It works with a reducer function that will take previous state and action
+as an argument and will then return the next state.
 
+
+Why useReducer?
+
+When components have lot of state variables and state updates, spread across many event handlers all over the component
+When multiple state updates need to happen at the same time 
+When updating one piece of state depends on one or multiple other pieces of state
+
+const [state,dispatch] = useReducer(reducer,initialState)
+
+We call useReducer with reducer function and initialState
+stores related peices of state in state object
+useReducer needs reducer function containig all logic to update states. Decouples state logic fron component
+reducer is a function that takes current state, action and returns next state
+state's are immutable, so it always return a new state based on action
+action is a object that describes how to update the state
+dispatch is a function to trigger state updates by sending actions from event handlers to reducers
+ 
