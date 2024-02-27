@@ -2,14 +2,16 @@ import { useEffect, useReducer, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Header from './Header'
-import Sub from './Sub'
-import Loader from './Loader'
-import StartScreen from './StartScreen'
+import Header from './components/Header'
+import Sub from './components/Sub'
+import Loader from './components/Loader'
+import StartScreen from './components/StartScreen'
+import Question from './components/Question'
 
 const initialState = {
   questions:[],
-  status:"loading"
+  status:"loading",
+  index:0
 }
 
 function reducer(state,action){
@@ -27,6 +29,12 @@ function reducer(state,action){
         status:"error"
       }
 
+    case 'start':
+      return {
+        ...state,
+        status:"active"
+      }
+
     default:
       throw new Error("Action unknown")
   }
@@ -34,7 +42,7 @@ function reducer(state,action){
 
 function App() {
 
-  const [{questions,status},dispatch] = useReducer(reducer,initialState)
+  const [{questions,status,index},dispatch] = useReducer(reducer,initialState)
   const numQuestions = questions.length
   console.log(questions)
   
@@ -48,7 +56,8 @@ function App() {
       <Sub>
         {status === "loading" && <Loader/>}
         {status === "error" && <Error/>}
-        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
+        {status === "ready" && <StartScreen numQuestions={numQuestions} dispatch={dispatch}/>}
+        {status === "active" && <Question question={questions[index]}/>}
       </Sub>
     </div>
   )
